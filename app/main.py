@@ -1,7 +1,7 @@
 import asyncio
 import logging
 
-from app.bot import create_bot, create_dispatcher
+from app.bot import create_bot, create_dispatcher, setup_bot_commands
 from app.database import init_db
 from app.services.scheduler import SummaryScheduler
 
@@ -13,6 +13,7 @@ async def main() -> None:
     )
     await init_db()
     bot = create_bot()
+    await setup_bot_commands(bot)
     dp = create_dispatcher()
     scheduler = SummaryScheduler(bot)
     scheduler.start()
