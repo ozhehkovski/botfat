@@ -1,0 +1,17 @@
+.env
+.env.*
+!.env.example
+
+data/
+app/__pycache__/
+app/handlers/__pycache__/
+app/services/__pycache__/
+app/repositories/__pycache__/
+app/models/__pycache__/
+app/database/__pycache__/
+app/config/__pycache__/
+app/states/__pycache__/
+app/bot/__pycache__/
+app/main/__pycache__/
+__pycache__/
+*.pyc

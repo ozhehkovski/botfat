@@ -1,0 +1,13 @@
+class BotStates:
+    ONBOARDING_WEIGHT = "onboarding_weight"
+    ONBOARDING_HEIGHT = "onboarding_height"
+    ONBOARDING_CALORIES = "onboarding_calories"
+    ONBOARDING_PROTEIN = "onboarding_protein"
+    MEAL_COLLECTING = "meal_collecting"
+    MEAL_CLARIFICATION = "meal_clarification"
+    MEAL_REVISION = "meal_revision"
+    DELETE_CONFIRM = "delete_confirm"
+    SETTINGS_WEIGHT = "settings_weight"
+    SETTINGS_HEIGHT = "settings_height"
+    SETTINGS_CALORIES = "settings_calories"
+    SETTINGS_PROTEIN = "settings_protein"
