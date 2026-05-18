@@ -52,6 +52,7 @@ class MealsRepository:
             total_protein=analysis["total"]["protein"],
             total_fat=analysis["total"]["fat"],
             total_carbs=analysis["total"]["carbs"],
+            total_fiber=analysis["total"].get("fiber", 0),
             confidence=analysis.get("confidence"),
             status="confirmed",
             openai_raw_response=json.dumps(analysis, ensure_ascii=False),
@@ -71,6 +72,7 @@ class MealsRepository:
                     protein=item.get("protein"),
                     fat=item.get("fat"),
                     carbs=item.get("carbs"),
+                    fiber=item.get("fiber"),
                     notes=item.get("notes"),
                 )
             )

@@ -37,6 +37,7 @@ class SummariesRepository:
         summary.total_protein = payload.get("total_protein")
         summary.total_fat = payload.get("total_fat")
         summary.total_carbs = payload.get("total_carbs")
+        summary.total_fiber = payload.get("total_fiber")
         summary.calorie_limit = payload.get("calorie_limit")
         summary.protein_goal = payload.get("protein_goal")
         summary.summary_text = summary_text

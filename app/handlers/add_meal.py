@@ -42,7 +42,8 @@ def _render_analysis(analysis: dict) -> str:
             [
                 f"• {item['name']} — {quantity_text} {item.get('unit') or ''}".rstrip(),
                 f"{item.get('calories', 0):.0f} ккал / Б: {item.get('protein', 0):.0f} г / "
-                f"Ж: {item.get('fat', 0):.0f} г / У: {item.get('carbs', 0):.0f} г",
+                f"Ж: {item.get('fat', 0):.0f} г / У: {item.get('carbs', 0):.0f} г / "
+                f"Клетчатка: {item.get('fiber', 0):.0f} г",
                 "",
             ]
         )
@@ -51,7 +52,8 @@ def _render_analysis(analysis: dict) -> str:
             "Итого:",
             f"{analysis['total']['calories']:.0f} ккал",
             f"Б: {analysis['total']['protein']:.0f} г / "
-            f"Ж: {analysis['total']['fat']:.0f} г / У: {analysis['total']['carbs']:.0f} г",
+            f"Ж: {analysis['total']['fat']:.0f} г / У: {analysis['total']['carbs']:.0f} г / "
+            f"Клетчатка: {analysis['total'].get('fiber', 0):.0f} г",
             "",
             f"Точность: примерно {round((analysis.get('confidence') or 0) * 100)}%",
             "",
@@ -131,7 +133,8 @@ async def cmd_delete_last(message: Message) -> None:
         await message.answer(
             f"Удалить последнюю запись?\n\n{meal.meal_title or 'Прием пищи'}\n"
             f"{meal.total_calories or 0:.0f} ккал / Б: {meal.total_protein or 0:.0f} г / "
-            f"Ж: {meal.total_fat or 0:.0f} г / У: {meal.total_carbs or 0:.0f} г",
+            f"Ж: {meal.total_fat or 0:.0f} г / У: {meal.total_carbs or 0:.0f} г / "
+            f"Клетчатка: {meal.total_fiber or 0:.0f} г",
             reply_markup=delete_confirmation_keyboard(),
         )
 
@@ -180,7 +183,8 @@ async def callback_confirm(callback: CallbackQuery) -> None:
         await callback.message.answer(
             f"Сохранено.\n\n{meal.meal_title or 'Прием пищи'}\n"
             f"{meal.total_calories or 0:.0f} ккал / Б: {meal.total_protein or 0:.0f} г / "
-            f"Ж: {meal.total_fat or 0:.0f} г / У: {meal.total_carbs or 0:.0f} г"
+            f"Ж: {meal.total_fat or 0:.0f} г / У: {meal.total_carbs or 0:.0f} г / "
+            f"Клетчатка: {meal.total_fiber or 0:.0f} г"
         )
         await callback.answer()
 

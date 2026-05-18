@@ -67,6 +67,7 @@ class MealEntry(Base, TimestampMixin):
     total_protein: Mapped[float | None] = mapped_column(Float)
     total_fat: Mapped[float | None] = mapped_column(Float)
     total_carbs: Mapped[float | None] = mapped_column(Float)
+    total_fiber: Mapped[float | None] = mapped_column(Float)
     confidence: Mapped[float | None] = mapped_column(Float)
     status: Mapped[str] = mapped_column(String(32), default="draft", nullable=False, index=True)
     openai_raw_response: Mapped[str | None] = mapped_column(Text)
@@ -93,6 +94,7 @@ class MealItem(Base):
     protein: Mapped[float | None] = mapped_column(Float)
     fat: Mapped[float | None] = mapped_column(Float)
     carbs: Mapped[float | None] = mapped_column(Float)
+    fiber: Mapped[float | None] = mapped_column(Float)
     notes: Mapped[str | None] = mapped_column(Text)
     created_at: Mapped[datetime] = mapped_column(
         DateTime(timezone=True), server_default=func.now(), nullable=False
@@ -126,6 +128,7 @@ class DailySummary(Base):
     total_protein: Mapped[float | None] = mapped_column(Float)
     total_fat: Mapped[float | None] = mapped_column(Float)
     total_carbs: Mapped[float | None] = mapped_column(Float)
+    total_fiber: Mapped[float | None] = mapped_column(Float)
     calorie_limit: Mapped[int | None] = mapped_column(Integer)
     protein_goal: Mapped[int | None] = mapped_column(Integer)
     summary_text: Mapped[str | None] = mapped_column(Text)
